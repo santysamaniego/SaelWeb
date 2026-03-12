@@ -1,0 +1,7 @@
+{
+  "name": "SAEL - Diseño Web Profesional",
+  "description": "Servicios de diseño y desarrollo web profesional por SAEL. Landing pages, webs corporativas y rediseño web en Buenos Aires, Argentina.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

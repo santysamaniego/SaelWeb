@@ -15,9 +15,10 @@ const demos: Demo[] = [
     description:
       "Plataforma con filtros avanzados, mapas interactivos y visualización de propiedades.",
     images: [
-      "https://picsum.photos/seed/real1/800/600",
-      "https://picsum.photos/seed/real2/800/600",
-      "https://picsum.photos/seed/real3/800/600"
+      "demo-corralon1.png",
+      "demo-corralon2.png",
+      "demo-corralon3.png",
+      "demo-corralon4.png"
     ],
     link: "#"
   },
@@ -28,7 +29,8 @@ const demos: Demo[] = [
     images: [
       "demo-gym1.png",
       "demo-gym2.png",
-      "demo-gym3.png"
+      "demo-gym3.png",
+      "demo-gym4.png"
     ],
     link: "#"
   },

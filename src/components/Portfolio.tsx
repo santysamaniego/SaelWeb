@@ -9,12 +9,10 @@ const projects = [
     category: "Gimnasio",
     image: "area32-2.png",
     description:
-      "Una tienda online de lujo con animaciones fluidas y experiencia de usuario excepcional.",
-    gallery: [
-      "area32-1.png",
-      "area32-2.png",
-      "area32-3.png"
-    ]
+      "Web informativa para un gimnasio donde los usuarios pueden conocer el lugar, sus servicios y membresías.",
+    details:
+      "Incluye ubicación, horarios, panel de rutinas y diseño adaptado a los colores del gimnasio.",
+    gallery: ["area32-1.png", "area32-2.png", "area32-3.png"]
   },
   {
     id: 2,
@@ -22,12 +20,10 @@ const projects = [
     category: "Laboratorio Dental",
     image: "dentalms-1.png",
     description:
-      "Sitio web para agencia de marketing digital con storytelling visual.",
-    gallery: [
-      "dentalms-1.png",
-      "dentalms-2.png",
-      "dentalms-3.png"
-    ]
+      "Sitio web profesional para un protesista dental orientado a odontólogos y clínicas.",
+    details:
+      "Presenta servicios, tipos de prótesis, historia del profesional y datos de contacto, con estética de laboratorio dental.",
+    gallery: ["dentalms-1.png", "dentalms-2.png", "dentalms-3.png"]
   },
   {
     id: 3,
@@ -35,36 +31,30 @@ const projects = [
     category: "Asesora de Valor Salud",
     image: "asesora-1.png",
     description:
-      "Landing page interactiva con sistema de reservas y menú digital.",
-    gallery: [
-      "asesora-1.png",
-      "asesora-2.png",
-      "asesora-3.png"
-    ]
+      "Web creada para una asesora de seguros de salud que busca ampliar su presencia digital.",
+    details:
+      "Explica los servicios de asesoramiento, beneficios y facilita el contacto con potenciales clientes.",
+    gallery: ["asesora-1.png", "asesora-2.png", "asesora-3.png"]
   },
   {
     id: 4,
     title: "Lavaggi",
     category: "Hotel Restaurante",
     image: "lavaggi-1.png",
-    description: "Portafolio minimalista para fotógrafo profesional.",
-    gallery: [
-      "lavaggi-1.png",
-      "lavaggi-2.png",
-      "lavaggi-3.png"
-    ]
+    description: "Sitio web para un hotel restaurante ubicado en la costa.",
+    details:
+      "Muestra imágenes del lugar, servicios del hotel y restaurante, con un diseño inspirado en el ambiente de playa.",
+    gallery: ["lavaggi-1.png", "lavaggi-2.png", "lavaggi-3.png"]
   },
   {
     id: 5,
     title: "Quinceañera",
-    category: "Invitacón de XV",
+    category: "Invitación de XV",
     image: "alay-1.png",
-    description: "Plataforma profesional para servicios legales.",
-    gallery: [
-      "alay-1.png",
-      "alay-2.png",
-      "alay-3.png"
-    ]
+    description: "Invitación digital interactiva para evento de quince años.",
+    details:
+      "Incluye cronograma del evento, información del lugar, frases especiales y alias para regalos.",
+    gallery: ["alay-1.png", "alay-2.png", "alay-3.png"]
   },
   {
     id: 6,
@@ -72,12 +62,10 @@ const projects = [
     category: "Diseño de Interiores",
     image: "italiandesign-1.png",
     description:
-      "Landing page interactiva con sistema de reservas y menú digital.",
-    gallery: [
-      "italiandesign-1.png",
-      "italiandesign-2.png",
-      "italiandesign-3.png"
-    ]
+      "Web para una empresa italiana de diseño interior especializada en mobiliario de alta gama.",
+    details:
+      "Presenta proyectos, servicios y una estética elegante alineada con el diseño italiano.",
+    gallery: ["italiandesign-1.png", "italiandesign-2.png", "italiandesign-3.png"]
   }
 ];
 
@@ -176,11 +164,7 @@ const Portfolio = () => {
             className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-6"
           >
 
-            {/* MODAL */}
-
             <div className="relative w-full max-w-4xl bg-black border border-beige/10 rounded-3xl p-6 md:p-10 max-h-[90vh] overflow-y-auto">
-
-              {/* BOTON CERRAR */}
 
               <button
                 onClick={() => setSelectedProject(null)}
@@ -236,8 +220,7 @@ const Portfolio = () => {
                     </h4>
 
                     <p className="text-beige/60 text-xs leading-relaxed">
-                      Proyecto desarrollado con enfoque en experiencia de usuario,
-                      diseño moderno y optimización para conversión.
+                      {selectedProject.details}
                     </p>
 
                   </div>

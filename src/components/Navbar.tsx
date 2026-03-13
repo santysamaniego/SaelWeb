@@ -25,8 +25,16 @@ const Navbar = () => {
       className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-black/50 backdrop-blur-md border-b border-burgundy/20"
     >
 
-      <div className="text-2xl font-serif font-bold tracking-tighter text-beige">
-        SAEL
+      {/* Logo + Title */}
+      <div className="flex items-center gap-2">
+        <img
+          src="logo_saelDesign.png"
+          alt="SAEL Logo"
+          className="h-7 w-auto"
+        />
+        <div className="text-2xl font-serif font-bold tracking-tighter text-beige">
+          SAEL
+        </div>
       </div>
 
       {/* Desktop menu */}

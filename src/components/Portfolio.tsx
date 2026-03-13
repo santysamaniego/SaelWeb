@@ -47,8 +47,7 @@ const projects = [
     title: "Marca Personal",
     category: "Web Personal",
     image: "https://picsum.photos/seed/p4/800/600",
-    description:
-      "Portafolio minimalista para fotógrafo profesional.",
+    description: "Portafolio minimalista para fotógrafo profesional.",
     gallery: [
       "https://picsum.photos/seed/p4-1/800/600",
       "https://picsum.photos/seed/p4-2/800/600",
@@ -60,8 +59,7 @@ const projects = [
     title: "Estudio Jurídico",
     category: "Web Corporativa",
     image: "https://picsum.photos/seed/p5/800/600",
-    description:
-      "Plataforma profesional para servicios legales.",
+    description: "Plataforma profesional para servicios legales.",
     gallery: [
       "https://picsum.photos/seed/p5-1/800/600",
       "https://picsum.photos/seed/p5-2/800/600",
@@ -73,8 +71,7 @@ const projects = [
     title: "Clínica Estética",
     category: "Landing Page",
     image: "https://picsum.photos/seed/p6/800/600",
-    description:
-      "Sitio enfocado en conversión para tratamientos de belleza.",
+    description: "Sitio enfocado en conversión para tratamientos de belleza.",
     gallery: [
       "https://picsum.photos/seed/p6-1/800/600",
       "https://picsum.photos/seed/p6-2/800/600",
@@ -84,6 +81,7 @@ const projects = [
 ];
 
 const Portfolio = () => {
+
   const [selectedProject, setSelectedProject] = useState<any | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -122,51 +120,46 @@ const Portfolio = () => {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group flex flex-col bg-beige/5 border border-beige/20 rounded-[26px] overflow-hidden transition-all duration-500 hover:border-burgundy-light hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+              className="group relative overflow-hidden rounded-[26px] cursor-pointer"
+              onClick={() => {
+                setSelectedProject(project);
+                setCurrentImageIndex(0);
+              }}
             >
 
-              <div className="aspect-video overflow-hidden relative">
+              <div className="aspect-[3/4] md:aspect-video relative">
 
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover blur-[2px] group-hover:blur-sm transition duration-500 group-hover:scale-110"
                 />
 
-                {/* overlay hover */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
 
-              </div>
+                  <h3 className="text-beige text-lg md:text-xl font-serif font-bold mb-4 drop-shadow-lg">
+                    {project.title}
+                  </h3>
 
-              <div className="p-4 md:p-6 flex flex-col h-full">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedProject(project);
+                      setCurrentImageIndex(0);
+                    }}
+                    className="text-[10px] uppercase font-semibold tracking-wider border border-beige/60 px-4 py-2 rounded-full text-beige backdrop-blur-sm hover:border-burgundy-light hover:text-burgundy-light transition"
+                  >
+                    Ampliar
+                  </button>
 
-                <span className="text-burgundy-light text-[10px] uppercase font-bold tracking-widest mb-2">
-                  {project.category}
-                </span>
-
-                <h3 className="text-beige text-lg md:text-xl font-serif font-bold mb-2">
-                  {project.title}
-                </h3>
-
-                <p className="text-beige/70 text-xs md:text-sm leading-relaxed">
-                  {project.description}
-                </p>
-
-                <button
-                  onClick={() => {
-                    setSelectedProject(project);
-                    setCurrentImageIndex(0);
-                  }}
-                  className="mt-auto mt-4 text-[10px] uppercase font-semibold tracking-wider border border-beige/30 px-3 py-1 rounded-full text-beige hover:border-burgundy-light hover:text-burgundy-light transition"
-                >
-                  Ampliar
-                </button>
+                </div>
 
               </div>
 
             </motion.div>
 
           ))}
+
         </div>
 
       </div>
@@ -182,13 +175,17 @@ const Portfolio = () => {
             className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-6"
           >
 
-            <div className="relative w-full max-w-4xl bg-black border border-beige/10 rounded-3xl p-6 md:p-10">
+            {/* MODAL */}
+
+            <div className="relative w-full max-w-4xl bg-black border border-beige/10 rounded-3xl p-6 md:p-10 max-h-[90vh] overflow-y-auto">
+
+              {/* BOTON CERRAR */}
 
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 text-beige hover:text-burgundy-light"
+                className="absolute top-6 right-6 md:top-5 md:right-5 z-50 text-beige hover:text-burgundy-light transition"
               >
-                <X />
+                <X size={26} />
               </button>
 
               <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -232,6 +229,7 @@ const Portfolio = () => {
                   </p>
 
                   <div className="border border-beige/10 rounded-2xl p-5 bg-beige/5">
+
                     <h4 className="text-burgundy-light text-[10px] uppercase font-bold tracking-widest mb-2">
                       Detalles del proyecto
                     </h4>
@@ -240,6 +238,7 @@ const Portfolio = () => {
                       Proyecto desarrollado con enfoque en experiencia de usuario,
                       diseño moderno y optimización para conversión.
                     </p>
+
                   </div>
 
                 </div>

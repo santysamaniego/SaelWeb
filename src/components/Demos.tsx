@@ -11,7 +11,7 @@ type Demo = {
 
 const demos: Demo[] = [
   {
-    title: "Inmobiliaria Moderna",
+    title: "Corralon de Materiales",
     description:
       "Plataforma con filtros avanzados, mapas interactivos y visualización de propiedades.",
     images: [
@@ -26,53 +26,57 @@ const demos: Demo[] = [
     description:
       "Sistema de reservas de clases con perfiles de entrenadores y blog de nutrición.",
     images: [
-      "https://picsum.photos/seed/fit1/800/600",
-      "https://picsum.photos/seed/fit2/800/600",
-      "https://picsum.photos/seed/fit3/800/600"
+      "demo-gym1.png",
+      "demo-gym2.png",
+      "demo-gym3.png"
     ],
     link: "#"
   },
   {
-    title: "Estudio Jurídico",
+    title: "Joyeria",
     description:
       "Diseño profesional con agenda de citas y áreas de práctica detalladas.",
     images: [
-      "https://picsum.photos/seed/legal1/800/600",
-      "https://picsum.photos/seed/legal2/800/600",
-      "https://picsum.photos/seed/legal3/800/600"
+      "demo-reloj1.png",
+      "demo-reloj2.png",
+      "demo-reloj3.png",
+      "demo-reloj4.png"
     ],
     link: "#"
   },
   {
-    title: "Restaurante Gourmet",
+    title: "Paisajismo - Jardineria",
     description:
       "Carta digital interactiva con reservas online y diseño elegante.",
     images: [
-      "https://picsum.photos/seed/rest1/800/600",
-      "https://picsum.photos/seed/rest2/800/600",
-      "https://picsum.photos/seed/rest3/800/600"
+      "demo-jardineria1.png",
+      "demo-jardineria2.png",
+      "demo-jardineria3.png",
+      "demo-jardineria4.png"
     ],
     link: "#"
   },
   {
-    title: "Agencia de Viajes",
+    title: "Estética",
     description:
       "Catálogo dinámico de destinos con reservas integradas.",
     images: [
-      "https://picsum.photos/seed/travel1/800/600",
-      "https://picsum.photos/seed/travel2/800/600",
-      "https://picsum.photos/seed/travel3/800/600"
+      "demo-estetica1.png",
+      "demo-estetica2.png",
+      "demo-estetica4.png",
+      "demo-estetica3.png"
     ],
     link: "#"
   },
   {
-    title: "Tienda de Moda",
+    title: "Hotelería",
     description:
       "E-commerce moderno con catálogo visual y compra optimizada.",
     images: [
-      "https://picsum.photos/seed/fashion1/800/600",
-      "https://picsum.photos/seed/fashion2/800/600",
-      "https://picsum.photos/seed/fashion3/800/600"
+      "demo-hotel1.png",
+      "demo-hotel2.png",
+      "demo-hotel3.png",
+      "demo-hotel4.png"
     ],
     link: "#"
   }

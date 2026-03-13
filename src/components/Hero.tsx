@@ -3,10 +3,11 @@ import { motion } from 'motion/react';
 
 const Hero = () => {
   const marqueeImages = [
-    "https://picsum.photos/seed/web1/600/400",
-    "https://picsum.photos/seed/web2/600/400",
-    "https://picsum.photos/seed/web3/600/400",
-    "https://picsum.photos/seed/web4/600/400",
+    "area32-1.png",
+    "lavaggi-4.png",
+    "demo-estetica3.png",
+    "demo-reloj1.png",
+    "service-3-2.png",
   ];
 
   return (

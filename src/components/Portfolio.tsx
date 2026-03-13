@@ -5,77 +5,78 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "E-commerce Premium",
-    category: "Tienda Online",
-    image: "https://picsum.photos/seed/p1/800/600",
+    title: "Area 32",
+    category: "Gimnasio",
+    image: "area32-2.png",
     description:
       "Una tienda online de lujo con animaciones fluidas y experiencia de usuario excepcional.",
     gallery: [
-      "https://picsum.photos/seed/p1-1/800/600",
-      "https://picsum.photos/seed/p1-2/800/600",
-      "https://picsum.photos/seed/p1-3/800/600"
+      "area32-1.png",
+      "area32-2.png",
+      "area32-3.png"
     ]
   },
   {
     id: 2,
-    title: "Agencia Creativa",
-    category: "Web Corporativa",
-    image: "https://picsum.photos/seed/p2/800/600",
+    title: "Dental MS",
+    category: "Laboratorio Dental",
+    image: "dentalms-1.png",
     description:
       "Sitio web para agencia de marketing digital con storytelling visual.",
     gallery: [
-      "https://picsum.photos/seed/p2-1/800/600",
-      "https://picsum.photos/seed/p2-2/800/600",
-      "https://picsum.photos/seed/p2-3/800/600"
+      "dentalms-1.png",
+      "dentalms-2.png",
+      "dentalms-3.png"
     ]
   },
   {
     id: 3,
-    title: "Restaurante Gourmet",
-    category: "Landing Page",
-    image: "https://picsum.photos/seed/p3/800/600",
+    title: "Valor Salud",
+    category: "Asesora de Valor Salud",
+    image: "asesora-1.png",
     description:
       "Landing page interactiva con sistema de reservas y menú digital.",
     gallery: [
-      "https://picsum.photos/seed/p3-1/800/600",
-      "https://picsum.photos/seed/p3-2/800/600",
-      "https://picsum.photos/seed/p3-3/800/600"
+      "asesora-1.png",
+      "asesora-2.png",
+      "asesora-3.png"
     ]
   },
   {
     id: 4,
-    title: "Marca Personal",
-    category: "Web Personal",
-    image: "https://picsum.photos/seed/p4/800/600",
+    title: "Lavaggi",
+    category: "Hotel Restaurante",
+    image: "lavaggi-1.png",
     description: "Portafolio minimalista para fotógrafo profesional.",
     gallery: [
-      "https://picsum.photos/seed/p4-1/800/600",
-      "https://picsum.photos/seed/p4-2/800/600",
-      "https://picsum.photos/seed/p4-3/800/600"
+      "lavaggi-1.png",
+      "lavaggi-2.png",
+      "lavaggi-3.png"
     ]
   },
   {
     id: 5,
-    title: "Estudio Jurídico",
-    category: "Web Corporativa",
-    image: "https://picsum.photos/seed/p5/800/600",
+    title: "Quinceañera",
+    category: "Invitacón de XV",
+    image: "alay-1.png",
     description: "Plataforma profesional para servicios legales.",
     gallery: [
-      "https://picsum.photos/seed/p5-1/800/600",
-      "https://picsum.photos/seed/p5-2/800/600",
-      "https://picsum.photos/seed/p5-3/800/600"
+      "alay-1.png",
+      "alay-2.png",
+      "alay-3.png"
     ]
   },
   {
     id: 6,
-    title: "Clínica Estética",
-    category: "Landing Page",
-    image: "https://picsum.photos/seed/p6/800/600",
-    description: "Sitio enfocado en conversión para tratamientos de belleza.",
+    title: "Italian Design",
+    category: "Diseño de Interiores",
+    image: "italiandesign-1.png",
+    description:
+      "Landing page interactiva con sistema de reservas y menú digital.",
     gallery: [
-      "https://picsum.photos/seed/p6-1/800/600",
-      "https://picsum.photos/seed/p6-2/800/600",
-      "https://picsum.photos/seed/p6-3/800/600"
+      "italiandesign-1.png",
+      "italiandesign-2.png",
+      "italiandesign-3.png"
     ]
   }
 ];

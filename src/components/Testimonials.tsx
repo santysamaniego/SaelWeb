@@ -4,21 +4,21 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    name: "Carolina Herrera",
-    role: "CEO de Estilo Propio",
-    content: "Trabajar con SAEL fue una experiencia transformadora. Captó la esencia de mi marca desde el primer momento y la plasmó en una web que no deja de recibir elogios.",
+    name: "César",
+    role: "Protesista Dental",
+    content: "Necesitaba una web para mostrar mis prótesis dentales a odontólogos y el resultado fue excelente. Ahora puedo presentar mis servicios de forma mucho más profesional.",
     image: "https://i.pravatar.cc/150?u=carolina"
   },
   {
-    name: "Javier Méndez",
-    role: "Director de TechFlow",
-    content: "Buscábamos algo disruptivo y moderno. El resultado superó nuestras expectativas. La atención al detalle y la velocidad de carga son simplemente impecables.",
+    name: "Alahi",
+    role: "Invitación de XV",
+    content: "Quería una invitación diferente para mis 15 y la web quedó hermosa. Mis invitados pudieron ver todos los detalles de la fiesta de forma súper fácil.",
     image: "https://i.pravatar.cc/150?u=javier"
   },
   {
-    name: "Sofía Rossi",
-    role: "Fundadora de Rossi Art",
-    content: "Mi portafolio ahora es mi mejor carta de presentación. La elegancia y fluidez del sitio reflejan exactamente lo que quería transmitir como artista.",
+    name: "Aldana",
+    role: "Asesoria de Seguros Médicos",
+    content: "Solicité una página web para mi servicio de asesoramiento en obras sociales. El resultado fue profesional, claro y me está ayudando a recibir más consultas.",
     image: "https://i.pravatar.cc/150?u=sofia"
   }
 ];

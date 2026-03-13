@@ -4,7 +4,7 @@ import { CheckCircle2 } from 'lucide-react';
 
 const About = () => {
   const [displayText, setDisplayText] = useState("");
-  const fullText = "Soy un apasionado del desarrollo web enfocado en crear soluciones digitales que no solo se vean bien, sino que funcionen perfectamente. Mi objetivo es ayudar a marcas y profesionales a destacar en el mundo digital a través de diseños innovadores y tecnologías modernas.";
+  const fullText = "Soy Santiago, Técnico en Programación y apasionado por el desarrollo web. Hoy me dedico a crear páginas web profesionales que ayudan a negocios y emprendedores a fortalecer su presencia digital.";
   
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: false, amount: 0.5 });

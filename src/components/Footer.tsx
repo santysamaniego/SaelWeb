@@ -30,8 +30,7 @@ const Footer = () => {
             </h2>
 
             <p className="text-beige/50 text-[11px] leading-relaxed">
-              Desarrollo de páginas web modernas, elegantes y optimizadas para SEO.
-              Diseño pensado para marcas que buscan destacar en internet.
+              Desarrollo de páginas web profesionales para negocios y emprendedores que buscan fortalecer su presencia digital.
             </p>
 
           </div>

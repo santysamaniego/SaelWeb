@@ -5,26 +5,26 @@ import { ArrowRight } from 'lucide-react';
 const services = [
   {
     title: "Landing Page",
-    description: "Páginas de aterrizaje optimizadas para convertir visitantes en clientes. Diseño enfocado en resultados y velocidad.",
-    image: "https://picsum.photos/seed/landing/800/600",
+    description: "Página web de una sola sección, ideal para presentar un servicio o producto de forma clara y directa. Diseñada para captar la atención y generar consultas rápidamente.",
+    image: "service-1.png",
     side: "left"
   },
   {
     title: "Web Corporativa",
-    description: "Presencia digital sólida para tu empresa. Estructura profesional, escalable y alineada con tu identidad de marca.",
-    image: "https://picsum.photos/seed/corporate/800/600",
+    description: "Sitio web profesional con múltiples secciones para mostrar tu negocio, servicios e información relevante. Ideal para fortalecer tu presencia digital y generar confianza",
+    image: "service-2.png",
     side: "right"
   },
   {
     title: "Rediseño de Web",
-    description: "¿Tu web se quedó en el pasado? La transformamos por completo con las últimas tendencias y mejores prácticas.",
-    image: "https://picsum.photos/seed/redesign/800/600",
+    description: "Actualización y mejora de páginas web existentes, optimizando diseño, estructura y experiencia de usuario para lograr una imagen más moderna y profesional.",
+    image: "service-3.png",
     side: "left"
   },
   {
     title: "Web Profesional Personal",
-    description: "Tu marca personal merece lo mejor. Portafolios y sitios personales que reflejan tu talento y profesionalismo.",
-    image: "https://picsum.photos/seed/personal/800/600",
+    description: "Diseño de página web pensada para profesionales que desean mostrar sus servicios, experiencia y datos de contacto de manera clara y profesional",
+    image: "service-4.png",
     side: "right"
   }
 ];

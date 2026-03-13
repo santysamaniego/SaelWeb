@@ -27,7 +27,7 @@ const Hero = () => {
         >
 
           <span className="text-burgundy-light uppercase tracking-[0.5em] text-[10px] font-bold mb-4 block">
-            Diseño Web de Vanguardia
+            Diseño web moderno y profesional
           </span>
 
           <h1 className="text-6xl md:text-9xl font-serif font-bold text-beige leading-none mb-6">
@@ -35,7 +35,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-xs md:text-base text-beige/70 max-w-xl mx-auto font-light tracking-widest mb-10 uppercase">
-            Transformo ideas en experiencias digitales memorables.
+            Impulso tu presencia digital con páginas web profesionales.
           </p>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-12">

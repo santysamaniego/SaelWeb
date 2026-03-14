@@ -15,12 +15,13 @@ const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-black"
+      className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/img_hero_principal.png')" }}
     >
 
       {/* Background */}
 
-      <div className="absolute inset-0 opacity-20 pointer-events-none hero-glow">
+      <div className="absolute inset-0 opacity-1 pointer-events-none hero-glow">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-burgundy rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-burgundy-light rounded-full blur-[120px]" />
       </div>

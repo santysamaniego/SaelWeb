@@ -1,5 +1,4 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const services = [
@@ -30,11 +29,41 @@ const services = [
 ];
 
 const Services = () => {
+
   const whatsappNumber = "1169595853";
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+            entry.target.classList.add("service-visible");
+          } else {
+            entry.target.classList.remove("service-visible");
+          }
+
+        });
+
+      },
+      { threshold: 0.25 }
+    );
+
+    const items = sectionRef.current?.querySelectorAll(".service-item");
+
+    items?.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+
+  }, []);
 
   return (
     <section id="servicios" className="py-24 px-6 bg-black relative overflow-hidden">
-      <div className="max-w-6xl mx-auto relative z-10">
+
+      <div ref={sectionRef} className="max-w-6xl mx-auto relative z-10">
 
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-beige mb-4">
@@ -47,28 +76,17 @@ const Services = () => {
 
           {services.map((service, index) => (
 
-            <motion.div
+            <div
               key={index}
-              initial={{
-                opacity: 0,
-                y: 50,
-                x: service.side === "left" ? -80 : 80
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-                x: 0
-              }}
-              viewport={{ once: false, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className={`relative flex flex-col ${
+              className={`service-item ${
+                service.side === "left" ? "service-left" : "service-right"
+              } relative flex flex-col ${
                 service.side === 'left'
                   ? 'md:flex-row'
                   : 'md:flex-row-reverse'
               } items-center gap-12 md:gap-24`}
             >
 
-              {/* Background shape */}
               <div
                 className={`absolute top-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-beige/5 rounded-full blur-3xl -z-10 ${
                   service.side === 'left'
@@ -77,7 +95,6 @@ const Services = () => {
                 }`}
               />
 
-              {/* Imagen */}
               <div className="flex-1 w-full flex justify-center relative">
 
                 <div className="relative group w-48 h-48 md:w-80 md:h-80">
@@ -99,7 +116,6 @@ const Services = () => {
 
               </div>
 
-              {/* Texto */}
               <div className="flex-1 text-center md:text-left">
 
                 <h3 className="text-2xl md:text-3xl font-serif font-bold text-beige mb-6">
@@ -125,14 +141,16 @@ const Services = () => {
 
               </div>
 
-            </motion.div>
+            </div>
 
           ))}
 
         </div>
 
       </div>
+
     </section>
   );
 };
+
 export default Services;

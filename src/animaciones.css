@@ -134,3 +134,25 @@ transform:translateY(0);
 }
 
 /* About end */
+
+/* Services start */
+
+.service-item{
+opacity:0;
+}
+
+.service-left{
+transform:translateX(-80px) translateY(50px);
+}
+
+.service-right{
+transform:translateX(80px) translateY(50px);
+}
+
+.service-visible{
+opacity:1;
+transform:translateX(0) translateY(0);
+transition:all 0.8s ease;
+}
+
+/* Services end */

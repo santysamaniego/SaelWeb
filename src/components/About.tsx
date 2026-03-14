@@ -26,7 +26,7 @@ const About = () => {
 
     if (!isInView || !textRef.current) return;
 
-    const speed = 20; // velocidad rápida y fluida
+    const speed = 24; // velocidad rápida y fluida
 
     intervalRef.current = setInterval(() => {
 

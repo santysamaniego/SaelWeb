@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'motion/react';
 import { CheckCircle2 } from 'lucide-react';
 
 const About = () => {
 
-  const [displayText, setDisplayText] = useState("");
-  const fullText = "Soy Santiago, Técnico en Programación y apasionado por el desarrollo web. Hoy me dedico a crear páginas web profesionales que ayudan a negocios y emprendedores a fortalecer su presencia digital.";
+  const fullText =
+    "Soy Santiago, Técnico en Programación y apasionado por el desarrollo web. Hoy me dedico a crear páginas web profesionales que ayudan a negocios y emprendedores a fortalecer su presencia digital.";
 
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { margin: "-100px" });
-
+  const textRef = useRef<HTMLParagraphElement | null>(null);
   const typingRef = useRef<number | null>(null);
-  const indexRef = useRef(0);
 
   const typingAudioRef = useRef<HTMLAudioElement | null>(null);
   const shutterAudioRef = useRef<HTMLAudioElement | null>(null);
+
+  const isInView = useInView(containerRef, { margin: "-100px" });
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -25,39 +25,49 @@ const About = () => {
 
   useEffect(() => {
 
-    typingAudioRef.current = new Audio("https://www.soundjay.com/communication/typewriter-key-1.mp3");
+    typingAudioRef.current = new Audio(
+      "https://www.soundjay.com/communication/typewriter-key-1.mp3"
+    );
     typingAudioRef.current.loop = true;
     typingAudioRef.current.volume = 0.1;
 
-    shutterAudioRef.current = new Audio("https://www.soundjay.com/mechanical/camera-shutter-click-01.mp3");
+    shutterAudioRef.current = new Audio(
+      "https://www.soundjay.com/mechanical/camera-shutter-click-01.mp3"
+    );
     shutterAudioRef.current.volume = 0.1;
 
   }, []);
 
   useEffect(() => {
 
-    if (!isInView) return;
+    if (!isInView || !textRef.current) return;
 
     shutterAudioRef.current?.play().catch(() => {});
     typingAudioRef.current?.play().catch(() => {});
 
+    let index = 0;
+
     const type = () => {
 
-      indexRef.current += 1;
+      if (!textRef.current) return;
 
-      setDisplayText(fullText.slice(0, indexRef.current));
+      textRef.current.textContent = fullText.slice(0, index);
 
-      if (indexRef.current < fullText.length) {
-        typingRef.current = window.setTimeout(type, 28);
+      index++;
+
+      if (index <= fullText.length) {
+        typingRef.current = window.setTimeout(type, 25);
       } else {
         typingAudioRef.current?.pause();
       }
+
     };
 
     type();
 
     return () => {
       if (typingRef.current) clearTimeout(typingRef.current);
+      typingAudioRef.current?.pause();
     };
 
   }, [isInView]);
@@ -69,7 +79,11 @@ const About = () => {
   ];
 
   return (
-    <section id="sobre-mi" ref={containerRef} className="py-24 px-6 bg-black border-y border-beige/10">
+    <section
+      id="sobre-mi"
+      ref={containerRef}
+      className="py-24 px-6 bg-black border-y border-beige/10"
+    >
 
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
 
@@ -81,13 +95,12 @@ const About = () => {
 
           <div className="min-h-[150px]">
 
-            <p className="text-sm md:text-base text-beige/80 leading-relaxed mb-8 uppercase tracking-widest font-light">
+            <p
+              ref={textRef}
+              className="text-sm md:text-base text-beige/80 leading-relaxed mb-8 uppercase tracking-widest font-light"
+            />
 
-              {displayText}
-
-              <span className="inline-block w-1 h-4 bg-burgundy-light ml-1 animate-pulse" />
-
-            </p>
+            <span className="inline-block w-1 h-4 bg-burgundy-light ml-1 animate-pulse" />
 
           </div>
 

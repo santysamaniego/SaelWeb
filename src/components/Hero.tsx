@@ -68,7 +68,7 @@ const Hero = () => {
 
       {/* MARQUEE */}
 
-      <div className="relative w-full overflow-hidden py-6">
+      <div className="relative w-full overflow-hidden py-3">
 
         <div className="marquee-track">
 
@@ -76,7 +76,8 @@ const Hero = () => {
 
             <div
               key={idx}
-              className="w-[200px] h-[130px] md:w-[350px] md:h-[230px] flex-shrink-0 rounded-2xl overflow-hidden border border-beige/20 shadow-2xl"
+              className="w-[200px] h-[130px] md:w-[350px] md:h-[230px] flex-shrink-0 rounded-2xl overflow-hidden border border-beige/20 shadow-2xl transform-gpu"
+              style={{ transform: "translateZ(0)" }}
             >
 
               <img

@@ -33,6 +33,14 @@
   transform:translate3d(0,0,0);
 }
 
+.marquee-track img{
+  display:block;
+}
+
+.marquee-track div{
+  backface-visibility:hidden;
+}
+
 @keyframes marqueeScroll{
 
   0%{
@@ -102,6 +110,7 @@
 /* ============================= */
 /* HERO END */
 /* ============================= */
+
 
 
 /* About start */

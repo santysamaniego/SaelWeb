@@ -13,8 +13,7 @@ const Hero = () => {
   return (
     <section id="inicio" className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-black">
 
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-burgundy rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-burgundy-light rounded-full blur-[120px]" />
       </div>
@@ -25,6 +24,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          style={{ willChange: "transform, opacity" }}
         >
 
           <span className="text-burgundy-light uppercase tracking-[0.5em] text-[10px] font-bold mb-4 block">
@@ -61,14 +61,19 @@ const Hero = () => {
 
       </div>
 
-      {/* Marquee */}
+      {/* MARQUEE */}
 
       <div className="relative w-full overflow-hidden py-6">
 
         <motion.div
-          animate={{ x: [0, -1000] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="flex space-x-6 md:space-x-8 whitespace-nowrap"
+          animate={{ x: "-50%" }}
+          transition={{
+            repeat: Infinity,
+            duration: 30,
+            ease: "linear"
+          }}
+          className="flex gap-6 md:gap-8 w-max transform-gpu"
+          style={{ willChange: "transform" }}
         >
 
           {[...marqueeImages, ...marqueeImages].map((img, idx) => (
@@ -81,6 +86,8 @@ const Hero = () => {
               <img
                 src={img}
                 alt={`Work ${idx}`}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -103,6 +110,7 @@ const Hero = () => {
           y: { duration: 2, repeat: Infinity, ease: "easeInOut" }
         }}
         className="mt-12 flex flex-col items-center"
+        style={{ willChange: "transform" }}
       >
 
         <span className="text-[8px] uppercase tracking-[0.3em] mb-2 opacity-50 font-bold">

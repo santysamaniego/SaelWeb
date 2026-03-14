@@ -93,10 +93,12 @@ const Demos = () => {
   useEffect(() => {
 
     const interval = setInterval(() => {
+
       setIndexes(prev =>
         prev.map((i, idx) => (i + 1) % demos[idx].images.length)
       );
-    }, 4000);
+
+    }, 4500);
 
     return () => clearInterval(interval);
 
@@ -132,8 +134,6 @@ const Demos = () => {
 
         </div>
 
-        {/* GRID */}
-
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
 
           {demos.map((demo, index) => (
@@ -142,8 +142,10 @@ const Demos = () => {
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-120px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-[26px] cursor-pointer"
+              className="group relative overflow-hidden rounded-[26px] cursor-pointer transform-gpu"
+              style={{ willChange: "transform, opacity" }}
               onClick={() => {
                 setModalDemo(demo);
                 setModalIndex(0);
@@ -155,6 +157,8 @@ const Demos = () => {
                 <img
                   src={demo.images[indexes[index]]}
                   alt={demo.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover blur-[2px] group-hover:blur-sm transition duration-500 group-hover:scale-110"
                 />
 
@@ -187,8 +191,6 @@ const Demos = () => {
 
       </div>
 
-      {/* MODAL */}
-
       <AnimatePresence>
 
         {modalDemo && (
@@ -202,8 +204,6 @@ const Demos = () => {
 
             <div className="relative w-full max-w-4xl bg-black border border-beige/10 rounded-3xl p-6 md:p-10 max-h-[90vh] overflow-y-auto">
 
-              {/* BOTON CERRAR */}
-
               <button
                 onClick={() => setModalDemo(null)}
                 className="absolute top-6 right-6 md:top-4 md:right-4 z-50 text-beige hover:text-burgundy-light"
@@ -213,13 +213,12 @@ const Demos = () => {
 
               <div className="grid md:grid-cols-2 gap-8 items-center">
 
-                {/* GALERIA */}
-
                 <div className="relative">
 
                   <img
                     src={modalDemo.images[modalIndex]}
                     alt="demo"
+                    loading="lazy"
                     className="rounded-2xl w-full"
                   />
 
@@ -238,8 +237,6 @@ const Demos = () => {
                   </button>
 
                 </div>
-
-                {/* INFO */}
 
                 <div className="max-w-md">
 

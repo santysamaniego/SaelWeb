@@ -108,8 +108,10 @@ const Portfolio = () => {
               key={project.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-120px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-[26px] cursor-pointer"
+              className="group relative overflow-hidden rounded-[26px] cursor-pointer transform-gpu"
+              style={{ willChange: "transform, opacity" }}
               onClick={() => {
                 setSelectedProject(project);
                 setCurrentImageIndex(0);
@@ -121,6 +123,8 @@ const Portfolio = () => {
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover blur-[2px] group-hover:blur-sm transition duration-500 group-hover:scale-110"
                 />
 
@@ -180,6 +184,7 @@ const Portfolio = () => {
                   <img
                     src={selectedProject.gallery[currentImageIndex]}
                     alt=""
+                    loading="lazy"
                     className="rounded-2xl w-full"
                   />
 

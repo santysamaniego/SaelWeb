@@ -13,11 +13,12 @@ const About = () => {
   const typingAudioRef = useRef<HTMLAudioElement | null>(null);
   const shutterAudioRef = useRef<HTMLAudioElement | null>(null);
 
-  const isInView = useInView(containerRef, { margin: "-100px" });
-
   const frameRef = useRef<number | null>(null);
   const indexRef = useRef(0);
   const lastTimeRef = useRef(0);
+  const startedRef = useRef(false);
+
+  const isInView = useInView(containerRef, { margin: "-100px" });
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -43,18 +44,22 @@ const About = () => {
 
   useEffect(() => {
 
-    if (!isInView || !textRef.current) return;
+    if (!isInView || !textRef.current || startedRef.current) return;
+
+    startedRef.current = true;
 
     shutterAudioRef.current?.play().catch(() => {});
     typingAudioRef.current?.play().catch(() => {});
 
-    const speed = 18;
+    const speed = 16; // velocidad optimizada
 
     const animate = (time: number) => {
 
       if (!lastTimeRef.current) lastTimeRef.current = time;
 
-      if (time - lastTimeRef.current > speed) {
+      const delta = time - lastTimeRef.current;
+
+      if (delta > speed) {
 
         if (textRef.current) {
           textRef.current.textContent = fullText.slice(0, indexRef.current);
@@ -77,11 +82,14 @@ const About = () => {
     frameRef.current = requestAnimationFrame(animate);
 
     return () => {
-  if (frameRef.current !== null) {
-      cancelAnimationFrame(frameRef.current);
-    }
-    typingAudioRef.current?.pause();
-  };
+
+      if (frameRef.current !== null) {
+        cancelAnimationFrame(frameRef.current);
+      }
+
+      typingAudioRef.current?.pause();
+
+    };
 
   }, [isInView]);
 
@@ -112,7 +120,7 @@ const About = () => {
 
               <span ref={textRef}></span>
 
-              <span className="inline-block w-1 h-4 bg-burgundy-light ml-1 animate-pulse align-middle"></span>
+              <span className="inline-block w-[2px] h-[1em] bg-burgundy-light ml-1 animate-pulse align-middle"></span>
 
             </p>
 

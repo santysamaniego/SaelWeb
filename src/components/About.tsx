@@ -6,7 +6,7 @@ const About = () => {
   const fullText =
     "Soy Santiago, Técnico en Programación y apasionado por el desarrollo web. Hoy me dedico a crear páginas web profesionales que ayudan a negocios y emprendedores a fortalecer su presencia digital.";
 
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLSpanElement | null>(null);
 
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -14,34 +14,41 @@ const About = () => {
 
   useEffect(() => {
 
-    if (!textRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
 
-    const speed = 20;
+        if (!entry.isIntersecting || !textRef.current) return;
 
-    intervalRef.current = setInterval(() => {
+        const speed = 20;
 
-      if (!textRef.current) return;
+        intervalRef.current = setInterval(() => {
 
-      textRef.current.textContent = fullText.slice(0, indexRef.current);
+          if (!textRef.current) return;
 
-      indexRef.current++;
+          textRef.current.textContent = fullText.slice(0, indexRef.current);
 
-      if (indexRef.current > fullText.length) {
+          indexRef.current++;
 
-        if (intervalRef.current) clearInterval(intervalRef.current);
+          if (indexRef.current > fullText.length) {
+            if (intervalRef.current) clearInterval(intervalRef.current);
+          }
 
-      }
+        }, speed);
 
-    }, speed);
+        containerRef.current?.classList.add("about-visible");
+
+        observer.disconnect();
+
+      },
+      { rootMargin: "-100px" }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
 
     return () => {
-
       if (intervalRef.current) clearInterval(intervalRef.current);
-
-      indexRef.current = 0;
-
-      if (textRef.current) textRef.current.textContent = "";
-
     };
 
   }, []);

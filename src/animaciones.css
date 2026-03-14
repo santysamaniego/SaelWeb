@@ -109,18 +109,20 @@
 .about-tip{
 opacity:0;
 transform:translateY(10px);
-animation:aboutTipFade 0.4s ease forwards;
 }
 
-.tip-0{
+.about-visible .tip-0{
+animation:aboutTipFade 0.4s ease forwards;
 animation-delay:0.2s;
 }
 
-.tip-1{
+.about-visible .tip-1{
+animation:aboutTipFade 0.4s ease forwards;
 animation-delay:0.4s;
 }
 
-.tip-2{
+.about-visible .tip-2{
+animation:aboutTipFade 0.4s ease forwards;
 animation-delay:0.6s;
 }
 

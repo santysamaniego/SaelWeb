@@ -8,13 +8,16 @@ const About = () => {
     "Soy Santiago, Técnico en Programación y apasionado por el desarrollo web. Hoy me dedico a crear páginas web profesionales que ayudan a negocios y emprendedores a fortalecer su presencia digital.";
 
   const containerRef = useRef(null);
-  const textRef = useRef<HTMLParagraphElement | null>(null);
-  const typingRef = useRef<number | null>(null);
+  const textRef = useRef<HTMLSpanElement | null>(null);
 
   const typingAudioRef = useRef<HTMLAudioElement | null>(null);
   const shutterAudioRef = useRef<HTMLAudioElement | null>(null);
 
   const isInView = useInView(containerRef, { margin: "-100px" });
+
+  const frameRef = useRef<number>();
+  const indexRef = useRef(0);
+  const lastTimeRef = useRef(0);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -45,28 +48,36 @@ const About = () => {
     shutterAudioRef.current?.play().catch(() => {});
     typingAudioRef.current?.play().catch(() => {});
 
-    let index = 0;
+    const speed = 30;
 
-    const type = () => {
+    const animate = (time: number) => {
 
-      if (!textRef.current) return;
+      if (!lastTimeRef.current) lastTimeRef.current = time;
 
-      textRef.current.textContent = fullText.slice(0, index);
+      if (time - lastTimeRef.current > speed) {
 
-      index++;
+        if (textRef.current) {
+          textRef.current.textContent = fullText.slice(0, indexRef.current);
+        }
 
-      if (index <= fullText.length) {
-        typingRef.current = window.setTimeout(type, 25);
-      } else {
-        typingAudioRef.current?.pause();
+        indexRef.current++;
+
+        lastTimeRef.current = time;
+
+        if (indexRef.current > fullText.length) {
+          typingAudioRef.current?.pause();
+          return;
+        }
+
       }
 
+      frameRef.current = requestAnimationFrame(animate);
     };
 
-    type();
+    frameRef.current = requestAnimationFrame(animate);
 
     return () => {
-      if (typingRef.current) clearTimeout(typingRef.current);
+      if (frameRef.current) cancelAnimationFrame(frameRef.current);
       typingAudioRef.current?.pause();
     };
 
@@ -95,12 +106,13 @@ const About = () => {
 
           <div className="min-h-[150px]">
 
-            <p
-              ref={textRef}
-              className="text-sm md:text-base text-beige/80 leading-relaxed mb-8 uppercase tracking-widest font-light"
-            />
+            <p className="text-sm md:text-base text-beige/80 leading-relaxed mb-8 uppercase tracking-widest font-light">
 
-            <span className="inline-block w-1 h-4 bg-burgundy-light ml-1 animate-pulse" />
+              <span ref={textRef}></span>
+
+              <span className="inline-block w-1 h-4 bg-burgundy-light ml-1 animate-pulse align-middle"></span>
+
+            </p>
 
           </div>
 

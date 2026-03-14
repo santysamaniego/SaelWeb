@@ -4,24 +4,32 @@ import { Plus, Minus } from 'lucide-react';
 
 const faqs = [
   {
-    question: "¿Cuánto tiempo toma desarrollar una web?",
-    answer: "Depende de la complejidad. Una Landing Page puede estar lista en 1 semana, mientras que una web corporativa o profesional puede tomar entre 2 y 4 semanas."
+    question: "¿Por qué elegirnos para desarrollar tu página web?",
+    answer: "Porque cada proyecto se realiza de forma personalizada, con un diseño profesional pensado para representar tu negocio y ayudarte a llegar a más clientes."
   },
   {
-    question: "¿Necesito tener el contenido listo antes de empezar?",
-    answer: "Es ideal, pero no obligatorio. Puedo ayudarte a estructurar la información y sugerir textos que conviertan mejor."
+    question: "¿Cuánto cuesta crear una página web?",
+    answer: "El costo depende del tipo de sitio, las funcionalidades y el nivel de personalización. En algunos casos también se pueden contemplar acuerdos flexibles o colaboraciones según el proyecto."
   },
   {
-    question: "¿Las webs son autogestionables?",
-    answer: "Sí, utilizo tecnologías que permiten que puedas actualizar textos e imágenes de manera sencilla si así lo requieres."
+    question: "¿Cuánto tiempo tarda en estar lista la web?",
+    answer: "La mayoría de las páginas informativas pueden estar listas entre 1 y 4 días. El tiempo puede variar según la complejidad del proyecto y que toda la información necesaria esté disponible a tiempo."
   },
   {
-    question: "¿Qué pasa si ya tengo un diseño previo?",
-    answer: "¡Perfecto! Puedo encargarme únicamente del desarrollo respetando fielmente tu diseño o sugiriendo mejoras de UX/UI."
+    question: "¿Puedo solicitar cambios después de publicada la web?",
+    answer: "Sí. Ofrezco un servicio de mantenimiento mensual que permite realizar los cambios o actualizaciones que necesites. Si durante un mes no se realizan modificaciones, no se genera ningún costo."
   },
   {
-    question: "¿Ofreces mantenimiento post-lanzamiento?",
-    answer: "Sí, ofrezco planes de mantenimiento para asegurar que tu web esté siempre actualizada, segura y funcionando al 100%."
+    question: "¿Qué pasa si ya tengo una web o un diseño previo?",
+    answer: "Se puede crear una nueva web desde cero respetando tu diseño o utilizando la información del sitio actual. Si ya tenés dominio, también se realiza el traspaso a la nueva página."
+  },
+  {
+    question: "¿Quién se encarga del dominio y el hosting?",
+    answer: "El dominio es propiedad del cliente, por lo que puede comprarlo directamente o recibir asesoramiento para hacerlo. El hosting y la puesta online del sitio me encargo de gestionarlos."
+  },
+  {
+    question: "¿Qué necesito para comenzar el proyecto?",
+    answer: "Principalmente la información del negocio, imágenes si las hay y una idea general de lo que se quiere mostrar en la web. Con eso ya se puede iniciar el desarrollo."
   }
 ];
 

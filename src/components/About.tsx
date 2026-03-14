@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'motion/react';
+import { motion, useInView } from 'motion/react';
 import { CheckCircle2 } from 'lucide-react';
 
 const About = () => {
@@ -14,13 +14,6 @@ const About = () => {
   const indexRef = useRef(0);
 
   const isInView = useInView(containerRef, { margin: "-100px" });
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const imageScale = useTransform(scrollYProgress, [0, 0.5], [0.9, 1]);
 
   useEffect(() => {
 
@@ -62,29 +55,6 @@ const About = () => {
     "Aprendizaje constante"
   ];
 
-  const tipsContainer = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.15
-      }
-    }
-  };
-
-  const tipItem = {
-    hidden: {
-      opacity: 0,
-      y: 12
-    },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.35
-      }
-    }
-  };
-
   return (
 
     <section
@@ -95,7 +65,7 @@ const About = () => {
 
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
 
-        <motion.div>
+        <div>
 
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-beige mb-8">
             Sobre Mí
@@ -113,20 +83,17 @@ const About = () => {
 
           </div>
 
-          <motion.div
-            className="space-y-4"
-            variants={tipsContainer}
-            initial="hidden"
-            animate={isInView ? "show" : "hidden"}
-          >
+          <div className="space-y-4">
 
             {tips.map((tip, index) => (
 
               <motion.div
                 key={index}
-                variants={tipItem}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: index * 0.2, duration: 0.3 }}
                 className="flex items-center space-x-3"
-                style={{ willChange: "transform, opacity" }}
               >
 
                 <CheckCircle2 className="text-burgundy-light w-4 h-4 flex-shrink-0" />
@@ -139,17 +106,11 @@ const About = () => {
 
             ))}
 
-          </motion.div>
+          </div>
 
-        </motion.div>
+        </div>
 
-        <motion.div
-          style={{
-            scale: imageScale,
-            willChange: "transform"
-          }}
-          className="relative max-w-xs mx-auto md:ml-auto"
-        >
+        <div className="relative max-w-xs mx-auto md:ml-auto">
 
           <div className="aspect-square rounded-2xl overflow-hidden border border-beige/30 shadow-2xl">
 
@@ -166,7 +127,7 @@ const About = () => {
           <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-burgundy/20 rounded-full blur-3xl -z-10" />
           <div className="absolute -top-6 -left-6 w-48 h-48 bg-burgundy-light/10 rounded-full blur-3xl -z-10" />
 
-        </motion.div>
+        </div>
 
       </div>
 

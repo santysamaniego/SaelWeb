@@ -15,7 +15,7 @@ const About = () => {
 
   const isInView = useInView(containerRef, { margin: "-100px" });
 
-  const frameRef = useRef<number>();
+  const frameRef = useRef<number | null>(null);
   const indexRef = useRef(0);
   const lastTimeRef = useRef(0);
 
@@ -77,9 +77,11 @@ const About = () => {
     frameRef.current = requestAnimationFrame(animate);
 
     return () => {
-      if (frameRef.current) cancelAnimationFrame(frameRef.current);
-      typingAudioRef.current?.pause();
-    };
+  if (frameRef.current !== null) {
+      cancelAnimationFrame(frameRef.current);
+    }
+    typingAudioRef.current?.pause();
+  };
 
   }, [isInView]);
 

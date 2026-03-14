@@ -10,12 +10,8 @@ const About = () => {
   const containerRef = useRef(null);
   const textRef = useRef<HTMLSpanElement | null>(null);
 
-  const typingAudioRef = useRef<HTMLAudioElement | null>(null);
-  const shutterAudioRef = useRef<HTMLAudioElement | null>(null);
-
-  const frameRef = useRef<number | null>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const indexRef = useRef(0);
-  const lastTimeRef = useRef(0);
 
   const isInView = useInView(containerRef, { margin: "-100px" });
 
@@ -28,72 +24,33 @@ const About = () => {
 
   useEffect(() => {
 
-    typingAudioRef.current = new Audio(
-      "https://www.soundjay.com/communication/typewriter-key-1.mp3"
-    );
-    typingAudioRef.current.loop = true;
-    typingAudioRef.current.volume = 0.1;
-
-    shutterAudioRef.current = new Audio(
-      "https://www.soundjay.com/mechanical/camera-shutter-click-01.mp3"
-    );
-    shutterAudioRef.current.volume = 0.1;
-
-  }, []);
-
-  useEffect(() => {
-
     if (!isInView || !textRef.current) return;
 
-    shutterAudioRef.current?.play().catch(() => {});
-    typingAudioRef.current?.play().catch(() => {});
+    const speed = 20; // velocidad rápida y fluida
 
-    const speed = 8; // ↓ ahora sí responde (más rápido)
+    intervalRef.current = setInterval(() => {
 
-    const animate = (time: number) => {
+      if (!textRef.current) return;
 
-      if (!lastTimeRef.current) lastTimeRef.current = time;
+      textRef.current.textContent = fullText.slice(0, indexRef.current);
 
-      const delta = time - lastTimeRef.current;
+      indexRef.current++;
 
-      if (delta >= speed) {
+      if (indexRef.current > fullText.length) {
 
-        if (textRef.current) {
-          textRef.current.textContent = fullText.slice(0, indexRef.current);
-        }
-
-        indexRef.current++;
-
-        lastTimeRef.current = time;
-
-        if (indexRef.current > fullText.length) {
-          typingAudioRef.current?.pause();
-          return;
-        }
+        if (intervalRef.current) clearInterval(intervalRef.current);
 
       }
 
-      frameRef.current = requestAnimationFrame(animate);
-
-    };
-
-    frameRef.current = requestAnimationFrame(animate);
+    }, speed);
 
     return () => {
 
-      if (frameRef.current !== null) {
-        cancelAnimationFrame(frameRef.current);
-      }
+      if (intervalRef.current) clearInterval(intervalRef.current);
 
-      typingAudioRef.current?.pause();
-
-      // reinicia si vuelve a entrar en viewport
       indexRef.current = 0;
-      lastTimeRef.current = 0;
 
-      if (textRef.current) {
-        textRef.current.textContent = "";
-      }
+      if (textRef.current) textRef.current.textContent = "";
 
     };
 
@@ -106,6 +63,7 @@ const About = () => {
   ];
 
   return (
+
     <section
       id="sobre-mi"
       ref={containerRef}
@@ -138,15 +96,18 @@ const About = () => {
 
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ delay: index * 0.2 }}
+                viewport={{ once: true, margin: "-120px" }}
+                transition={{
+                  duration: 0.35,
+                  delay: index * 0.15
+                }}
                 className="flex items-center space-x-3"
                 style={{ willChange: "transform, opacity" }}
               >
 
-                <CheckCircle2 className="text-burgundy-light w-4 h-4" />
+                <CheckCircle2 className="text-burgundy-light w-4 h-4 flex-shrink-0" />
 
                 <span className="text-beige font-bold text-[10px] uppercase tracking-widest">
                   {tip}
@@ -161,7 +122,10 @@ const About = () => {
         </motion.div>
 
         <motion.div
-          style={{ scale: imageScale, willChange: "transform" }}
+          style={{
+            scale: imageScale,
+            willChange: "transform"
+          }}
           className="relative max-w-xs mx-auto md:ml-auto"
         >
 
@@ -185,6 +149,7 @@ const About = () => {
       </div>
 
     </section>
+
   );
 };
 

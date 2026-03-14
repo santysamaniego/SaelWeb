@@ -13,74 +13,74 @@ const demos: Demo[] = [
   {
     title: "Corralon de Materiales",
     description:
-      "Plataforma con filtros avanzados, mapas interactivos y visualización de propiedades.",
+      "Demo de web para un corralón con información del negocio, materiales, marcas, galería y contacto con presupuesto por WhatsApp.",
     images: [
       "demo-corralon1.png",
       "demo-corralon2.png",
       "demo-corralon3.png",
       "demo-corralon4.png"
     ],
-    link: "#"
+    link: "https://corralonsanjose.onrender.com/"
   },
   {
     title: "Gimnasio & Fitness",
     description:
-      "Sistema de reservas de clases con perfiles de entrenadores y blog de nutrición.",
+      "Demo de sitio para gimnasio con horarios, ubicación, staff, testimonios y botón de consulta por WhatsApp.",
     images: [
       "demo-gym1.png",
       "demo-gym2.png",
       "demo-gym3.png",
       "demo-gym4.png"
     ],
-    link: "#"
+    link: "https://fitnessleg.onrender.com/"
   },
   {
     title: "Joyeria",
     description:
-      "Diseño profesional con agenda de citas y áreas de práctica detalladas.",
+      "Demo de ecommerce de relojes con catálogo, carrito de pedidos, asistente IA y panel de administración.",
     images: [
       "demo-reloj1.png",
       "demo-reloj2.png",
       "demo-reloj3.png",
       "demo-reloj4.png"
     ],
-    link: "#"
+    link: "https://grizzly-b1c3d.web.app/"
   },
   {
     title: "Paisajismo - Jardineria",
     description:
-      "Carta digital interactiva con reservas online y diseño elegante.",
+      "Demo de web para servicios de jardinería y vivero con carrito, turnos y panel administrativo de gestión.",
     images: [
       "demo-jardineria1.png",
       "demo-jardineria2.png",
       "demo-jardineria3.png",
       "demo-jardineria4.png"
     ],
-    link: "#"
+    link: "https://jardines-severino.onrender.com/"
   },
   {
     title: "Estética",
     description:
-      "Catálogo dinámico de destinos con reservas integradas.",
+      "Demo de sitio para servicios de estética con turnos online, galería de trabajos y confirmación por WhatsApp.",
     images: [
       "demo-estetica1.png",
       "demo-estetica2.png",
       "demo-estetica4.png",
       "demo-estetica3.png"
     ],
-    link: "#"
+    link: "https://leonlash.web.app/"
   },
   {
     title: "Hotelería",
     description:
-      "E-commerce moderno con catálogo visual y compra optimizada.",
+      "Demo de web para hotel frente al mar con secciones del hotel y panel de gestión de habitaciones y personal.",
     images: [
       "demo-hotel1.png",
       "demo-hotel2.png",
       "demo-hotel3.png",
       "demo-hotel4.png"
     ],
-    link: "#"
+    link: "https://hotel-lavaggi.web.app/"
   }
 ];
 
@@ -164,15 +164,12 @@ const Demos = () => {
 
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
 
-                  <h2
-                    className="text-lg md:text-xl font-serif font-bold mb-4"
-                    style={{
-                      color: "#000",
-                      WebkitTextStroke: "0.2px #f5f5dc"
-                    }}
+                  <h3
+                    className="text-beige text-lg md:text-xl font-serif font-bold mb-4"
+                    style={{ textShadow: "0 3px 6px rgba(0,0,0,0.9), 0 8px 20px rgba(0,0,0,0.9)" }}
                   >
                     {demo.title}
-                  </h2>
+                  </h3>
 
                   <button
                     onClick={(e) => {
@@ -180,11 +177,8 @@ const Demos = () => {
                       setModalDemo(demo);
                       setModalIndex(0);
                     }}
-                    className="text-[10px] uppercase font-semibold tracking-wider border border-burgundy-light px-4 py-2 rounded-full backdrop-blur-sm hover:bg-burgundy-light hover:text-beige transition"
-                    style={{
-                      color: "#000",
-                      WebkitTextStroke: "0.1px #f5f5dc"
-                    }}
+                    className="text-[10px] uppercase font-semibold tracking-wider border border-beige/60 px-4 py-2 rounded-full text-beige backdrop-blur-sm hover:border-burgundy-light hover:text-burgundy-light transition"
+                    style={{ textShadow: "0 4px 14px rgba(0,0,0,0.9)" }}
                   >
                     Ver demo
                   </button>

@@ -130,7 +130,12 @@ const Portfolio = () => {
 
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
 
-                  <h3 className="text-beige text-lg md:text-xl font-serif font-bold mb-4 drop-shadow-lg">
+                  <h3
+                    className="text-beige text-lg md:text-xl font-serif font-bold mb-4"
+                    style={{
+                      textShadow: "0 3px 6px rgba(0,0,0,0.9), 0 8px 20px rgba(0,0,0,0.9)"
+                    }}
+                  >
                     {project.title}
                   </h3>
 
@@ -141,6 +146,9 @@ const Portfolio = () => {
                       setCurrentImageIndex(0);
                     }}
                     className="text-[10px] uppercase font-semibold tracking-wider border border-beige/60 px-4 py-2 rounded-full text-beige backdrop-blur-sm hover:border-burgundy-light hover:text-burgundy-light transition"
+                    style={{
+                      textShadow: "0 3px 6px rgba(0,0,0,0.9), 0 8px 20px rgba(0,0,0,0.9)"
+                    }}
                   >
                     Ampliar
                   </button>

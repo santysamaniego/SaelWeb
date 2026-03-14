@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "motion/react";
 
 const Hero = () => {
 
@@ -19,9 +18,9 @@ const Hero = () => {
       className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-black"
     >
 
-      {/* Background glow */}
+      {/* Background */}
 
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
+      <div className="absolute inset-0 opacity-20 pointer-events-none hero-glow">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-burgundy rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-burgundy-light rounded-full blur-[120px]" />
       </div>
@@ -30,12 +29,7 @@ const Hero = () => {
 
       <div className="relative z-10 text-center px-4 pt-32">
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          style={{ willChange: "transform, opacity" }}
-        >
+        <div className="hero-content">
 
           <span className="text-burgundy-light uppercase tracking-[0.5em] text-[10px] font-bold mb-4 block">
             Diseño web moderno y profesional
@@ -67,29 +61,15 @@ const Hero = () => {
 
           </div>
 
-        </motion.div>
+        </div>
 
       </div>
 
-      {/* MARQUEE OPTIMIZADO */}
+      {/* MARQUEE */}
 
       <div className="relative w-full overflow-hidden py-6">
 
-        <motion.div
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 35,
-            ease: "linear",
-          }}
-          className="flex gap-6 md:gap-8 w-max"
-          style={{
-            willChange: "transform",
-            transform: "translateZ(0)",
-            backfaceVisibility: "hidden",
-          }}
-        >
+        <div className="marquee-track">
 
           {images.map((img, idx) => (
 
@@ -103,30 +83,21 @@ const Hero = () => {
                 alt={`Work ${idx}`}
                 loading={idx < 2 ? "eager" : "lazy"}
                 decoding="async"
-                className="w-full h-full object-cover"
                 draggable="false"
+                className="w-full h-full object-cover"
               />
 
             </div>
 
           ))}
 
-        </motion.div>
+        </div>
 
       </div>
 
       {/* Scroll indicator */}
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{
-          opacity: { delay: 1.5, duration: 1 },
-          y: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-        }}
-        className="mt-12 flex flex-col items-center"
-        style={{ willChange: "transform" }}
-      >
+      <div className="mt-12 flex flex-col items-center scroll-indicator">
 
         <span className="text-[8px] uppercase tracking-[0.3em] mb-2 opacity-50 font-bold">
           Scroll
@@ -134,7 +105,7 @@ const Hero = () => {
 
         <div className="w-[1px] h-8 bg-gradient-to-b from-beige/50 to-transparent" />
 
-      </motion.div>
+      </div>
 
     </section>
   );

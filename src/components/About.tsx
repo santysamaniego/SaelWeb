@@ -26,7 +26,7 @@ const About = () => {
 
     if (!isInView || !textRef.current) return;
 
-    const speed = 24; // velocidad rápida y fluida
+    const speed = 20;
 
     intervalRef.current = setInterval(() => {
 
@@ -62,6 +62,29 @@ const About = () => {
     "Aprendizaje constante"
   ];
 
+  const tipsContainer = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const tipItem = {
+    hidden: {
+      opacity: 0,
+      y: 12
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.35
+      }
+    }
+  };
+
   return (
 
     <section
@@ -90,19 +113,18 @@ const About = () => {
 
           </div>
 
-          <div className="space-y-4">
+          <motion.div
+            className="space-y-4"
+            variants={tipsContainer}
+            initial="hidden"
+            animate={isInView ? "show" : "hidden"}
+          >
 
             {tips.map((tip, index) => (
 
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-120px" }}
-                transition={{
-                  duration: 0.35,
-                  delay: index * 0.15
-                }}
+                variants={tipItem}
                 className="flex items-center space-x-3"
                 style={{ willChange: "transform, opacity" }}
               >
@@ -117,7 +139,7 @@ const About = () => {
 
             ))}
 
-          </div>
+          </motion.div>
 
         </motion.div>
 

@@ -16,7 +16,6 @@ const About = () => {
   const frameRef = useRef<number | null>(null);
   const indexRef = useRef(0);
   const lastTimeRef = useRef(0);
-  const startedRef = useRef(false);
 
   const isInView = useInView(containerRef, { margin: "-100px" });
 
@@ -44,14 +43,12 @@ const About = () => {
 
   useEffect(() => {
 
-    if (!isInView || !textRef.current || startedRef.current) return;
-
-    startedRef.current = true;
+    if (!isInView || !textRef.current) return;
 
     shutterAudioRef.current?.play().catch(() => {});
     typingAudioRef.current?.play().catch(() => {});
 
-    const speed = 16; // velocidad optimizada
+    const speed = 8; // ↓ ahora sí responde (más rápido)
 
     const animate = (time: number) => {
 
@@ -59,7 +56,7 @@ const About = () => {
 
       const delta = time - lastTimeRef.current;
 
-      if (delta > speed) {
+      if (delta >= speed) {
 
         if (textRef.current) {
           textRef.current.textContent = fullText.slice(0, indexRef.current);
@@ -77,6 +74,7 @@ const About = () => {
       }
 
       frameRef.current = requestAnimationFrame(animate);
+
     };
 
     frameRef.current = requestAnimationFrame(animate);
@@ -88,6 +86,14 @@ const About = () => {
       }
 
       typingAudioRef.current?.pause();
+
+      // reinicia si vuelve a entrar en viewport
+      indexRef.current = 0;
+      lastTimeRef.current = 0;
+
+      if (textRef.current) {
+        textRef.current.textContent = "";
+      }
 
     };
 

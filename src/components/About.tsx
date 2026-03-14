@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { motion, useInView } from 'motion/react';
 import { CheckCircle2 } from 'lucide-react';
 
 const About = () => {
@@ -13,11 +12,9 @@ const About = () => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const indexRef = useRef(0);
 
-  const isInView = useInView(containerRef, { margin: "-100px" });
-
   useEffect(() => {
 
-    if (!isInView || !textRef.current) return;
+    if (!textRef.current) return;
 
     const speed = 20;
 
@@ -47,7 +44,7 @@ const About = () => {
 
     };
 
-  }, [isInView]);
+  }, []);
 
   const tips = [
     "Compromiso con cada proyecto",
@@ -87,13 +84,9 @@ const About = () => {
 
             {tips.map((tip, index) => (
 
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ delay: index * 0.2, duration: 0.3 }}
-                className="flex items-center space-x-3"
+                className={`flex items-center space-x-3 about-tip tip-${index}`}
               >
 
                 <CheckCircle2 className="text-burgundy-light w-4 h-4 flex-shrink-0" />
@@ -102,7 +95,7 @@ const About = () => {
                   {tip}
                 </span>
 
-              </motion.div>
+              </div>
 
             ))}
 

@@ -164,9 +164,15 @@ const Demos = () => {
 
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
 
-                  <h3 className="text-beige text-lg md:text-xl font-serif font-bold mb-4 drop-shadow-lg">
+                  <h2
+                    className="text-lg md:text-xl font-serif font-bold mb-4"
+                    style={{
+                      color: "#000",
+                      WebkitTextStroke: "0.2px #f5f5dc"
+                    }}
+                  >
                     {demo.title}
-                  </h3>
+                  </h2>
 
                   <button
                     onClick={(e) => {
@@ -174,7 +180,11 @@ const Demos = () => {
                       setModalDemo(demo);
                       setModalIndex(0);
                     }}
-                    className="text-[10px] uppercase font-semibold tracking-wider border border-beige/60 px-4 py-2 rounded-full text-beige backdrop-blur-sm hover:border-burgundy-light hover:text-burgundy-light transition"
+                    className="text-[10px] uppercase font-semibold tracking-wider border border-burgundy-light px-4 py-2 rounded-full backdrop-blur-sm hover:bg-burgundy-light hover:text-beige transition"
+                    style={{
+                      color: "#000",
+                      WebkitTextStroke: "0.1px #f5f5dc"
+                    }}
                   >
                     Ver demo
                   </button>

@@ -25,6 +25,12 @@ const services = [
     description: "Diseño de página web pensada para profesionales que desean mostrar sus servicios, experiencia y datos de contacto de manera clara y profesional",
     image: "service-4.png",
     side: "right"
+  },
+  {
+    title: "Invitación Digital Interactiva",
+    description: "Diseño de invitaciones web elegantes e interactivas para eventos, accesibles desde cualquier dispositivo.",
+    image: "invitacion-service5.png",
+    side: "left"
   }
 ];
 
@@ -133,7 +139,7 @@ const Services = () => {
                   className="inline-flex items-center space-x-2 text-burgundy-light font-bold hover:text-beige transition-colors group text-xs uppercase tracking-widest"
                 >
 
-                  <span>Consultar Servicio</span>
+                  <span>Solicitar presupuesto</span>
 
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-2 transition-transform" />
 

@@ -48,7 +48,7 @@ const About = () => {
     shutterAudioRef.current?.play().catch(() => {});
     typingAudioRef.current?.play().catch(() => {});
 
-    const speed = 30;
+    const speed = 20;
 
     const animate = (time: number) => {
 

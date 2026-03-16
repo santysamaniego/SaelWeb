@@ -18,15 +18,14 @@ const Navbar = () => {
   ];
 
   return (
-
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-black/50 backdrop-blur-md border-b border-burgundy/20"
+      className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center bg-black/50 backdrop-blur-md border-b border-burgundy/20"
     >
 
-      {/* Logo + Title */}
-      <div className="flex items-center gap-2">
+      {/* Logo */}
+      <div className="flex items-center gap-2 z-10">
         <img
           src="logo_sael2.png"
           alt="SAEL Logo"
@@ -37,25 +36,27 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Desktop menu */}
-      <div className="hidden md:flex space-x-8 text-[10px] uppercase tracking-[0.2em] font-bold">
-        {links.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            onClick={() => setActive(link.href)}
-            className={`transition-colors ${
-              active === link.href ? "text-burgundy-light" : "hover:text-burgundy-light"
-            }`}
-          >
-            {link.name}
-          </a>
-        ))}
+      {/* Desktop menu centrado */}
+      <div className="flex-1 flex justify-center">
+        <div className="hidden md:flex space-x-8 text-[10px] uppercase tracking-[0.2em] font-bold">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setActive(link.href)}
+              className={`transition-colors ${
+                active === link.href ? "text-burgundy-light" : "hover:text-burgundy-light"
+              }`}
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
       </div>
 
       {/* Mobile button */}
       <button
-        className="md:hidden text-beige"
+        className="md:hidden text-beige z-10"
         onClick={() => setOpen(!open)}
       >
         {open ? <X size={26} /> : <Menu size={26} />}
@@ -100,7 +101,6 @@ const Navbar = () => {
               <div className="text-xl font-serif font-bold text-beige tracking-wider">
                 SAEL
               </div>
-              
             </div>
 
           </motion.div>

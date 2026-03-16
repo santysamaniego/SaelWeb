@@ -4,7 +4,7 @@ import { CheckCircle2 } from 'lucide-react';
 const About = () => {
 
   const fullText =
-    "Soy Santiago, Técnico en Programación y apasionado por el desarrollo web. Hoy me dedico a crear páginas web profesionales que ayudan a negocios y emprendedores a fortalecer su presencia digital.";
+    "Soy Santiago, desarrollador web apasionado por crear páginas profesionales y personalizadas que ayudan a negocios y emprendedores a potenciar su presencia online de forma clara y efectiva.";
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLSpanElement | null>(null);

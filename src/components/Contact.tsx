@@ -90,7 +90,7 @@ Mi mensaje: ${formData.message}`;
                     </p>
 
                     <p className="text-beige text-xs font-bold tracking-widest">
-                      ssamaniego065@gmail.com
+                      sael.emprarg@gmail.com
                     </p>
                   </div>
 

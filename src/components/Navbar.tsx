@@ -100,6 +100,7 @@ const Navbar = () => {
               <div className="text-xl font-serif font-bold text-beige tracking-wider">
                 SAEL
               </div>
+              
             </div>
 
           </motion.div>

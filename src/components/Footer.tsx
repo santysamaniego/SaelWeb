@@ -102,7 +102,7 @@ const Footer = () => {
 
                 <li className="flex items-center space-x-3 text-beige/50 text-[10px] uppercase tracking-widest">
                   <Mail className="w-3 h-3 text-burgundy-light" />
-                  <span>ssamaniego065@gmail.com</span>
+                  <span>sael.emprarg@gmail.com</span>
                 </li>
 
                 <li className="flex items-center space-x-3 text-beige/50 text-[10px] uppercase tracking-widest">
@@ -131,7 +131,7 @@ const Footer = () => {
                 </a>
 
                 <a
-                  href="#"
+                  href="https://www.tiktok.com/@saelstudio"
                   className="w-10 h-10 rounded-full bg-beige/5 border border-beige/10 flex items-center justify-center text-beige hover:border-burgundy-light hover:text-burgundy-light transition-all transform hover:scale-110"
                 >
                   <TiktokIcon />

@@ -7,19 +7,19 @@ const testimonials = [
     name: "César",
     role: "Protesista Dental",
     content: "Necesitaba una web para mostrar mis prótesis dentales a odontólogos y el resultado fue excelente. Ahora puedo presentar mis servicios de forma mucho más profesional.",
-    image: "https://i.pravatar.cc/150?u=carolina"
+    image: "logo_msdental.png"
   },
   {
     name: "Alahi",
     role: "Invitación de XV",
     content: "Quería una invitación diferente para mis 15 y la web quedó hermosa. Mis invitados pudieron ver todos los detalles de la fiesta de forma súper fácil.",
-    image: "https://i.pravatar.cc/150?u=javier"
+    image: "logo_alay.png"
   },
   {
     name: "Aldana",
     role: "Asesoria de Seguros Médicos",
     content: "Solicité una página web para mi servicio de asesoramiento en obras sociales. El resultado fue profesional, claro y me está ayudando a recibir más consultas.",
-    image: "https://i.pravatar.cc/150?u=sofia"
+    image: "logo_af.png"
   }
 ];
 

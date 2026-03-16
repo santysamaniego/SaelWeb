@@ -28,7 +28,7 @@ const Navbar = () => {
       {/* Logo + Title */}
       <div className="flex items-center gap-2">
         <img
-          src="logo_saelDesign.png"
+          src="logo_sael2.png"
           alt="SAEL Logo"
           className="h-7 w-auto"
         />
@@ -93,7 +93,7 @@ const Navbar = () => {
             {/* Logo + Title */}
             <div className="flex items-center gap-2">
               <img
-                src="logo_saelDesign.png"
+                src="logo_sael2.png"
                 alt="SAEL Logo"
                 className="h-6 w-auto"
               />

@@ -90,9 +90,16 @@ const Navbar = () => {
             {/* Divider */}
             <div className="w-full h-[1px] bg-beige/40 mt-4" />
 
-            {/* Title */}
-            <div className="text-xl font-serif font-bold text-beige tracking-wider">
-              SAEL
+            {/* Logo + Title */}
+            <div className="flex items-center gap-2">
+              <img
+                src="logo_saelDesign.png"
+                alt="SAEL Logo"
+                className="h-6 w-auto"
+              />
+              <div className="text-xl font-serif font-bold text-beige tracking-wider">
+                SAEL
+              </div>
             </div>
 
           </motion.div>

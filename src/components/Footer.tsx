@@ -25,10 +25,18 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
 
-            <h2 className="text-3xl font-serif font-bold text-beige tracking-tighter">
-              SAEL
-            </h2>
-
+            {/* Logo + Title */}
+            <div className="flex items-center gap-2">
+              <img
+                src="logo_saelDesign.png"
+                alt="SAEL Logo"
+                className="h-7 w-auto"
+              />
+              <h2 className="text-3xl font-serif font-bold text-beige tracking-tighter">
+                    SAEL
+              </h2>
+            </div>
+            
             <p className="text-beige/50 text-[11px] leading-relaxed">
               Desarrollo de páginas web profesionales para negocios y emprendedores que buscan fortalecer su presencia digital.
             </p>

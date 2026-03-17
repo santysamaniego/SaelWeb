@@ -13,44 +13,63 @@ const About = () => {
   const indexRef = useRef(0);
 
   useEffect(() => {
-
+  
+    const speed = 20;
+  
     const observer = new IntersectionObserver(
       ([entry]) => {
-
-        if (!entry.isIntersecting || !textRef.current) return;
-
-        const speed = 20;
-
-        intervalRef.current = setInterval(() => {
-
-          if (!textRef.current) return;
-
-          textRef.current.textContent = fullText.slice(0, indexRef.current);
-
-          indexRef.current++;
-
-          if (indexRef.current > fullText.length) {
-            if (intervalRef.current) clearInterval(intervalRef.current);
+      
+        if (!textRef.current) return;
+      
+        if (entry.isIntersecting) {
+        
+          // Reset
+          if (intervalRef.current) clearInterval(intervalRef.current);
+          indexRef.current = 0;
+          textRef.current.textContent = "";
+        
+          // Animación typing
+          intervalRef.current = setInterval(() => {
+          
+            if (!textRef.current) return;
+          
+            textRef.current.textContent = fullText.slice(0, indexRef.current);
+          
+            indexRef.current++;
+          
+            if (indexRef.current > fullText.length) {
+              if (intervalRef.current) clearInterval(intervalRef.current);
+            }
+          
+          }, speed);
+        
+          containerRef.current?.classList.add("about-visible");
+        
+        } else {
+        
+          // Cuando sale de pantalla → limpiar
+          if (intervalRef.current) clearInterval(intervalRef.current);
+          indexRef.current = 0;
+        
+          if (textRef.current) {
+            textRef.current.textContent = "";
           }
-
-        }, speed);
-
-        containerRef.current?.classList.add("about-visible");
-
-        observer.disconnect();
-
+        
+        }
+      
       },
-      { rootMargin: "-100px" }
+      { threshold: 0.3 }
     );
-
+  
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
-
+  
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
+      observer.disconnect();
     };
-
+  
   }, []);
 
   const tips = [

@@ -68,7 +68,13 @@ const Hero = () => {
 
       {/* MARQUEE */}
 
-      <div className="relative w-full overflow-hidden py-3">
+      <div className="relative w-full overflow-hidden h-[150px] md:h-[260px] flex items-center">
+
+        {/* Fade izquierdo */}
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-20 z-10 bg-gradient-to-r from-black to-transparent" />
+
+        {/* Fade derecho */}
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-20 z-10 bg-gradient-to-l from-black to-transparent" />
 
         <div className="marquee-track">
 

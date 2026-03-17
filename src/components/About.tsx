@@ -115,7 +115,7 @@ const About = () => {
           <div className="aspect-square rounded-2xl overflow-hidden border border-beige/30 shadow-2xl">
 
             <img
-              src="https://picsum.photos/seed/sael-profile/600/600"
+              src="img_pc.png"
               alt="SAEL Profile"
               loading="lazy"
               decoding="async"

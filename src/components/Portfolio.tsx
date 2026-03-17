@@ -165,90 +165,91 @@ const Portfolio = () => {
 
       </div>
 
-      <AnimatePresence>
-
-        {selectedProject && (
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-6"
-          >
-
-            <div className="relative w-full max-w-4xl bg-black border border-beige/10 rounded-3xl p-6 md:p-10 max-h-[90vh] overflow-y-auto">
-
+    <AnimatePresence>
+            
+      {selectedProject && (
+      
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 md:p-6"
+        >
+        
+          <div className="relative w-full max-w-3xl bg-black border border-beige/10 rounded-3xl p-4 md:p-8 max-h-[90vh] overflow-y-auto">
+      
+            {/* CLOSE */}
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="absolute top-4 right-4 md:top-5 md:right-5 z-50 text-beige hover:text-burgundy-light transition"
+            >
+              <X size={26} />
+            </button>
+      
+            {/* IMAGE */}
+            <div className="relative mb-6">
+      
+              <img
+                src={selectedProject.gallery[currentImageIndex]}
+                alt=""
+                loading="lazy"
+                className="rounded-2xl w-full max-h-[60vh] object-cover"
+              />
+    
+              {/* LEFT */}
               <button
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-6 right-6 md:top-5 md:right-5 z-50 text-beige hover:text-burgundy-light transition"
+                onClick={prevImage}
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 p-2 rounded-full"
               >
-                <X size={26} />
+                <ChevronLeft />
               </button>
-
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-
-                <div className="relative">
-
-                  <img
-                    src={selectedProject.gallery[currentImageIndex]}
-                    alt=""
-                    loading="lazy"
-                    className="rounded-2xl w-full"
-                  />
-
-                  <button
-                    onClick={prevImage}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 p-2 rounded-full"
-                  >
-                    <ChevronLeft />
-                  </button>
-
-                  <button
-                    onClick={nextImage}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 p-2 rounded-full"
-                  >
-                    <ChevronRight />
-                  </button>
-
-                </div>
-
-                <div className="max-w-md">
-
-                  <span className="text-burgundy-light text-xs uppercase font-bold tracking-widest">
-                    {selectedProject.category}
-                  </span>
-
-                  <h3 className="text-3xl md:text-4xl font-serif text-beige font-bold mt-3 mb-4">
-                    {selectedProject.title}
-                  </h3>
-
-                  <p className="text-beige/80 text-sm leading-relaxed mb-6">
-                    {selectedProject.description}
-                  </p>
-
-                  <div className="border border-beige/10 rounded-2xl p-5 bg-beige/5">
-
-                    <h4 className="text-burgundy-light text-[10px] uppercase font-bold tracking-widest mb-2">
-                      Detalles del proyecto
-                    </h4>
-
-                    <p className="text-beige/60 text-xs leading-relaxed">
-                      {selectedProject.details}
-                    </p>
-
-                  </div>
-
-                </div>
-
-              </div>
-
+      
+              {/* RIGHT */}
+              <button
+                onClick={nextImage}
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 p-2 rounded-full"
+              >
+                <ChevronRight />
+              </button>
+      
             </div>
-
-          </motion.div>
-
-        )}
-
-      </AnimatePresence>
+      
+            {/* TEXT */}
+            <div className="max-w-2xl mx-auto text-center">
+      
+              <span className="text-burgundy-light text-xs uppercase font-bold tracking-widest">
+                {selectedProject.category}
+              </span>
+      
+              <h3 className="text-2xl md:text-4xl font-serif text-beige font-bold mt-3 mb-4">
+                {selectedProject.title}
+              </h3>
+      
+              <p className="text-beige/80 text-sm md:text-base leading-relaxed mb-6">
+                {selectedProject.description}
+              </p>
+      
+              <div className="border border-beige/10 rounded-2xl p-5 bg-beige/5 text-left">
+      
+                <h4 className="text-burgundy-light text-[10px] uppercase font-bold tracking-widest mb-2">
+                  Detalles del proyecto
+                </h4>
+      
+                <p className="text-beige/60 text-xs md:text-sm leading-relaxed">
+                  {selectedProject.details}
+                </p>
+      
+              </div>
+      
+            </div>
+      
+          </div>
+      
+        </motion.div>
+    
+      )}
+    
+    </AnimatePresence>
 
     </section>
   );

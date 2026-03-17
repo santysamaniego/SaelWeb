@@ -196,82 +196,83 @@ const Demos = () => {
       </div>
 
       <AnimatePresence>
-
+              
         {modalDemo && (
-
+        
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-6"
+            className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 md:p-6"
           >
-
-            <div className="relative w-full max-w-4xl bg-black border border-beige/10 rounded-3xl p-6 md:p-10 max-h-[90vh] overflow-y-auto">
-
+          
+            <div className="relative w-full max-w-3xl bg-black border border-beige/10 rounded-3xl p-4 md:p-8 max-h-[90vh] overflow-y-auto">
+        
+              {/* CLOSE */}
               <button
                 onClick={() => setModalDemo(null)}
-                className="absolute top-6 right-6 md:top-4 md:right-4 z-50 text-beige hover:text-burgundy-light"
+                className="absolute top-4 right-4 md:top-5 md:right-5 z-50 text-beige hover:text-burgundy-light"
               >
                 <X size={24} />
               </button>
-
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-
-                <div className="relative">
-
-                  <img
-                    src={modalDemo.images[modalIndex]}
-                    alt="demo"
-                    loading="lazy"
-                    className="rounded-2xl w-full"
-                  />
-
-                  <button
-                    onClick={prevModal}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 p-2 rounded-full"
-                  >
-                    <ChevronLeft />
-                  </button>
-
-                  <button
-                    onClick={nextModal}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 p-2 rounded-full"
-                  >
-                    <ChevronRight />
-                  </button>
-
-                </div>
-
-                <div className="max-w-md">
-
-                  <h3 className="text-3xl md:text-4xl font-serif text-beige font-bold mb-4">
-                    {modalDemo.title}
-                  </h3>
-
-                  <p className="text-beige/80 text-sm leading-relaxed mb-6">
-                    {modalDemo.description}
-                  </p>
-
-                  <a
-                    href={modalDemo.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[11px] uppercase font-semibold tracking-wider border border-beige/40 px-5 py-2 rounded-full text-beige hover:border-burgundy-light hover:text-burgundy-light transition"
-                  >
-                    Ver página
-                    <ExternalLink size={14} />
-                  </a>
-
-                </div>
-
+        
+              {/* IMAGE */}
+              <div className="relative mb-6">
+        
+                <img
+                  src={modalDemo.images[modalIndex]}
+                  alt="demo"
+                  loading="lazy"
+                  className="rounded-2xl w-full max-h-[60vh] object-cover"
+                />
+      
+                {/* LEFT */}
+                <button
+                  onClick={prevModal}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 p-2 rounded-full"
+                >
+                  <ChevronLeft />
+                </button>
+        
+                {/* RIGHT */}
+                <button
+                  onClick={nextModal}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 p-2 rounded-full"
+                >
+                  <ChevronRight />
+                </button>
+        
               </div>
-
+        
+              {/* TEXT */}
+              <div className="max-w-2xl mx-auto text-center">
+        
+                <h3 className="text-2xl md:text-4xl font-serif text-beige font-bold mb-4">
+                  {modalDemo.title}
+                </h3>
+        
+                <p className="text-beige/80 text-sm md:text-base leading-relaxed mb-6">
+                  {modalDemo.description}
+                </p>
+        
+                <a
+                  href={modalDemo.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[11px] uppercase font-semibold tracking-wider border border-beige/40 px-5 py-2 rounded-full text-beige hover:border-burgundy-light hover:text-burgundy-light transition"
+                >
+                  Ver página
+                  <ExternalLink size={14} />
+                </a>
+        
+              </div>
+        
             </div>
-
+        
           </motion.div>
-
+      
         )}
-
+      
       </AnimatePresence>
 
     </section>
